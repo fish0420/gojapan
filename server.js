@@ -12,4 +12,8 @@ const db = new Datastore({
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'client')));
 
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
 // ... 之後的資料庫操作都要改成 db.insert 或 db.find ...
