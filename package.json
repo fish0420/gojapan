@@ -1,0 +1,25 @@
+{
+  "name": "love-travel-log",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bson": "^7.0.0",
+    "express": "^5.2.1",
+    "memory-pager": "^1.5.0",
+    "mongodb": "^7.0.0",
+    "mongodb-connection-string-url": "^7.0.0",
+    "punycode": "^2.3.1",
+    "sparse-bitfield": "^3.0.3",
+    "tr46": "^5.1.1",
+    "webidl-conversions": "^7.0.0",
+    "whatwg-url": "^14.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
