@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<!-- 引用、設定與樣式擺放區 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>秋季東京 | 日本旅遊記</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 1. 自訂滾動視窗與整體風格 (維持提案暖色調與圓角) */
+        body {
+            background-color: #f8f9fa; 
+        }
+        .travel-header {
+            background-color: #ffe8e8; 
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            border-radius: 15px; 
+        }
+        .travel-entry {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        /* 2. 浮動視窗 (Hover Effect) */
+        .travel-entry:hover {
+            transform: translateY(-5px);
+        }
+        .entry-image {
+            height: 300px; /* 固定圖片高度 */
+            overflow: hidden;
+        }
+        .entry-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .travel-entry:hover .entry-image img {
+            transform: scale(1.05); /* 圖片輕微放大效果 */
+        }
+    </style>
+</head>
+
+<!-- 網頁主體 -->
+<body>
+
+    <!-- 導覽欄 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="home.html">日本旅遊記</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="home.html">網站首頁 <br> <h6> Home </h6> </a></li>
+                    <li class="nav-item"><a class="nav-link" href="summertokyo.html">夏日東京 <br> <h6> Tokyo </h6> </a></li> 
+                    <li class="nav-item"><a class="nav-link" href="osaka.html"> 大阪旅遊 <br> <h6> Osaka </h6> </a></li>
+                    <li class="nav-item"><a class="nav-link" href="yokohama.html">橫濱旅遊 <br> <h6> Yokohama </h6> </a></li>
+                    <li class="nav-item"><a class="nav-link" href="autumntokyo.html">秋季東京 <br> <h6> Tokyo </h6> </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主內容 -->
+    <main class="container my-5">
+
+         <!-- 主標題 -->
+        <header class="text-center travel-header">
+            <h1 class="display-4">秋季東京 | 重遊故地 🍁</h1>
+        </header>
+
+        <!-- 旅遊跑馬燈 -->
+        <div id="travelCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner" style="border-radius: var(--border-radius-lg); overflow: hidden;">
+                <div class="carousel-item active">
+                    <img src=".\AutumntokyoData\2.jpg" class="d-block w-100" alt="秋季東京照片" style="height: 500px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="bg-dark bg-opacity-50 p-1 rounded"></h3>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src=".\AutumntokyoData\1.jpg" class="d-block w-100" alt="秋季東京照片" style="height: 500px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="bg-dark bg-opacity-50 p-1 rounded"></h3>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src=".\AutumntokyoData\3.jpg" class="d-block w-100" alt="秋季東京照片" style="height: 500px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="bg-dark bg-opacity-50 p-1 rounded"></h3>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src=".\AutumntokyoData\4.jpg" class="d-block w-100" alt="秋季東京照片" style="height: 500px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="bg-dark bg-opacity-50 p-1 rounded"></h3>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#travelCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#travelCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    
+    </main>
+
+    <!-- 旅遊雜記與攻略排 -->
+    <div class="row">
+
+        <!-- 旅遊攻略 -->
+        <div class="col-lg-3">
+            <div class="sidebar">
+                <h4 class="mb-3 text-center">旅行攻略文檔</h4>
+                <p class="text-center text-muted">
+                    我們在秋季東京使用的行程規劃與交通指南。
+                </p>
+
+                <a href=".\PDF\2025.11 東京遊.pdf" download class="btn btn-primary w-100 mt-2">
+                    下載秋季東京攻略 PDF 
+                </a>
+
+                <hr>
+
+            </div>
+        </div>
+
+        <!-- 旅遊雜記 -->
+        <div class="col-lg-9">
+            <h2 class="mb-4">🍁 秋季東京專屬旅遊雜記</h2>
+            <div class="row">
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card misc-entry">
+                        <img src=".\AutumntokyoData\1.jpg" class="card-img-top misc-img" alt="再訪日本的飛機上">
+                        <div class="card-body p-0">
+                            <button class="btn btn-sm btn-outline-secondary misc-content-btn" type="button" data-bs-toggle="collapse" data-bs-target="#miscCollapse1" aria-expanded="false" aria-controls="miscCollapse1">
+                                再訪日本的飛機上 
+                            </button>
+                            <div class="collapse" id="miscCollapse1">
+                                <div class="p-4 text-start bg-light">
+                                    <p class="small mb-0">再訪日本的飛機上，好期待秋季的日本!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card misc-entry">
+                        <img src=".\AutumntokyoData\2.jpg" class="card-img-top misc-img" alt="ララココ">
+                        <div class="card-body p-0">
+                            <button class="btn btn-sm btn-outline-secondary misc-content-btn" type="button" data-bs-toggle="collapse" data-bs-target="#miscCollapse1" aria-expanded="false" aria-controls="miscCollapse1">
+                                ララココ 
+                            </button>
+                            <div class="collapse" id="miscCollapse1">
+                                <div class="p-4 text-start bg-light">
+                                    <p class="small mb-0"> 這隻慵懶的無尾熊，總是睡眼惺忪的樣子，太可愛了!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card misc-entry">
+                        <img src=".\AutumntokyoData\3.jpg" class="card-img-top misc-img" alt="東京秋紅">
+                        <div class="card-body p-0">
+                            <button class="btn btn-sm btn-outline-secondary misc-content-btn" type="button" data-bs-toggle="collapse" data-bs-target="#miscCollapse1" aria-expanded="false" aria-controls="miscCollapse1">
+                                東京秋紅
+                            </button>
+                            <div class="collapse" id="miscCollapse1">
+                                <div class="p-4 text-start bg-light">
+                                    <p class="small mb-0"> 讓我來跟東京秋天特色拍一張!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card misc-entry">
+                        <img src=".\AutumntokyoData\4.jpg" class="card-img-top misc-img" alt="東京秋紅">
+                        <div class="card-body p-0">
+                            <button class="btn btn-sm btn-outline-secondary misc-content-btn" type="button" data-bs-toggle="collapse" data-bs-target="#miscCollapse1" aria-expanded="false" aria-controls="miscCollapse1">
+                                東京秋紅
+                            </button>
+                            <div class="collapse" id="miscCollapse1">
+                                <div class="p-4 text-start bg-light">
+                                    <p class="small mb-0">換男人來跟東京秋天特色拍一張!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card misc-entry">
+                        <img src=".\AutumntokyoData\5.jpg" class="card-img-top misc-img" alt="再訪Nintendo TOKYO">
+                        <div class="card-body p-0">
+                            <button class="btn btn-sm btn-outline-secondary misc-content-btn" type="button" data-bs-toggle="collapse" data-bs-target="#miscCollapse1" aria-expanded="false" aria-controls="miscCollapse1">
+                                再訪Nintendo TOKYO 
+                            </button>
+                            <div class="collapse" id="miscCollapse1">
+                                <div class="p-4 text-start bg-light">
+                                    <p class="small mb-0">再訪任天堂，跟六樓的義大利水管工合照!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card misc-entry">
+                        <img src=".\AutumntokyoData\6.jpg" class="card-img-top misc-img" alt="Chuka Seitaigo 中華西太后 ">
+                        <div class="card-body p-0">
+                            <button class="btn btn-sm btn-outline-secondary misc-content-btn" type="button" data-bs-toggle="collapse" data-bs-target="#miscCollapse1" aria-expanded="false" aria-controls="miscCollapse1">
+                                Chuka Seitaigo 中華西太后 
+                            </button>
+                            <div class="collapse" id="miscCollapse1">
+                                <div class="p-4 text-start bg-light">
+                                    <p class="small mb-0"> 美味的天津丼與日式中華料理。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card misc-entry">
+                        <img src=".\AutumntokyoData\7.jpg" class="card-img-top misc-img" alt="animate">
+                        <div class="card-body p-0">
+                            <button class="btn btn-sm btn-outline-secondary misc-content-btn" type="button" data-bs-toggle="collapse" data-bs-target="#miscCollapse1" aria-expanded="false" aria-controls="miscCollapse1">
+                                animate
+                            </button>
+                            <div class="collapse" id="miscCollapse1">
+                                <div class="p-4 text-start bg-light">
+                                    <p class="small mb-0">大豐收!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card misc-entry">
+                        <img src=".\AutumntokyoData\8.jpg" class="card-img-top misc-img" alt="三年級Z班銀八老師的咖啡廳">
+                        <div class="card-body p-0">
+                            <button class="btn btn-sm btn-outline-secondary misc-content-btn" type="button" data-bs-toggle="collapse" data-bs-target="#miscCollapse1" aria-expanded="false" aria-controls="miscCollapse1">
+                                三年級Z班銀八老師的咖啡廳
+                            </button>
+                            <div class="collapse" id="miscCollapse1">
+                                <div class="p-4 text-start bg-light">
+                                    <p class="small mb-0">ヅラじゃない！桂だ！</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+         </div>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="text-center p-3">
+            © 2025 日本旅遊記 | 學號: S1411222005 張宇彤
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    
+</body>
+</html>

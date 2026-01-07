@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<!-- 引用、設定與樣式擺放區 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大阪旅遊 | 日本旅遊記</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 1. 自訂滾動視窗與整體風格 (維持提案暖色調與圓角) */
+        body {
+            background-color: #f8f9fa; 
+        }
+        .travel-header {
+            background-color: #ffe8e8; 
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            border-radius: 15px; 
+        }
+        .travel-entry {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        /* 2. 浮動視窗 (Hover Effect) */
+        .travel-entry:hover {
+            transform: translateY(-5px);
+        }
+        .entry-image {
+            height: 300px; /* 固定圖片高度 */
+            overflow: hidden;
+        }
+        .entry-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .travel-entry:hover .entry-image img {
+            transform: scale(1.05); /* 圖片輕微放大效果 */
+        }
+    </style>
+</head>
+
+<!-- 網頁主體 -->
+<body>
+
+    <!-- 導覽欄 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="home.html">日本旅遊記</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="home.html">網站首頁 <br> <h6> Home </h6> </a></li>
+                    <li class="nav-item"><a class="nav-link" href="summertokyo.html">夏日東京 <br> <h6> Tokyo </h6> </a></li> 
+                    <li class="nav-item"><a class="nav-link" href="osaka.html"> 大阪旅遊 <br> <h6> Osaka </h6> </a></li>
+                    <li class="nav-item"><a class="nav-link" href="yokohama.html">橫濱旅遊 <br> <h6> Yokohama </h6> </a></li>
+                    <li class="nav-item"><a class="nav-link" href="autumntokyo.html">秋季東京 <br> <h6> Tokyo </h6> </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主內容 -->
+    <main class="container my-5">
+
+         <!-- 主標題 -->
+        <header class="text-center travel-header">
+            <h1 class="display-4">大阪旅遊 | 美食之旅 🐙</h1>
+        </header>
+
+        <!-- 旅遊跑馬燈 -->
+        <div id="travelCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner" style="border-radius: var(--border-radius-lg); overflow: hidden;">
+                <div class="carousel-item active">
+                    <img src=".\TravelCarousel\大阪10.jpeg" class="d-block w-100" alt="大阪美食照片" style="height: 500px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="bg-dark bg-opacity-50 p-1 rounded">蕎麥麵</h3>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src=".\TravelCarousel\大阪2.jpeg" class="d-block w-100" alt="大阪美食照片" style="height: 500px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="bg-dark bg-opacity-50 p-1 rounded">橡子共和國</h3>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src=".\TravelCarousel\大阪3.jpeg" class="d-block w-100" alt="大阪美食照片" style="height: 500px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="bg-dark bg-opacity-50 p-1 rounded">道頓堀</h3>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src=".\TravelCarousel\大阪11.jpeg" class="d-block w-100" alt="大阪美食照片" style="height: 500px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="bg-dark bg-opacity-50 p-1 rounded">章魚燒</h3>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#travelCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#travelCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    
+    </main>
+
+    <!-- 旅遊雜記與攻略排 -->
+    <div class="row">
+
+        <!-- 旅遊攻略 -->
+        <div class="col-lg-3">
+            <div class="sidebar">
+                <h4 class="mb-3 text-center">旅行攻略文檔</h4>
+                <p class="text-center text-muted">
+                    我們在大阪旅遊使用的行程規劃與交通指南。
+                </p>
+
+                <a href=".\PDF\2025大阪遊.pdf" download class="btn btn-primary w-100 mt-2">
+                    下載大阪旅遊行程 PDF 
+                </a>
+
+                <hr>
+
+                <h4 class="mb-3 text-center">大阪旅遊Vlog</h4>
+                <p class="text-center text-muted">
+                    將大阪旅遊用Vlog的方式記錄下來。
+                </p>
+
+                <a href="https://www.youtube.com/watch?v=UYP1So_sgSk" download class="btn btn-primary w-100 mt-2">
+                    YouTube的連結
+                </a>
+
+                <hr>
+
+            </div>
+        </div>
+
+        <!-- 旅遊雜記 -->
+        <div class="col-lg-9">
+            <h2 class="mb-4">🍣大阪旅遊專屬旅遊雜記</h2>
+            <div class="row">
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card misc-entry">
+                        <img src=".\OsakaData\01.JPG" class="card-img-top misc-img" alt="大阪車站 ">
+                        <div class="card-body p-0">
+                            <button class="btn btn-sm btn-outline-secondary misc-content-btn" type="button" data-bs-toggle="collapse" data-bs-target="#miscCollapse1" aria-expanded="false" aria-controls="miscCollapse1">
+                                大阪車站  
+                            </button>
+                            <div class="collapse" id="miscCollapse1">
+                                <div class="p-4 text-start bg-light">
+                                    <p class="small mb-0">大阪車站好大! 根本逛不完!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card misc-entry">
+                        <img src=".\OsakaData\02.JPG" class="card-img-top misc-img" alt="LNCUA1100">
+                        <div class="card-body p-0">
+                            <button class="btn btn-sm btn-outline-secondary misc-content-btn" type="button" data-bs-toggle="collapse" data-bs-target="#miscCollapse1" aria-expanded="false" aria-controls="miscCollapse1">
+                                LNCUA1100
+                            </button>
+                            <div class="collapse" id="miscCollapse1">
+                                <div class="p-4 text-start bg-light">
+                                    <p class="small mb-0">這間爆米花店跟男人同名，爆米花也很好吃，豐富口味，鹹甜適中，很適合當伴手禮。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card misc-entry">
+                        <img src=".\OsakaData\03.JPG" class="card-img-top misc-img" alt="大阪車站 ">
+                        <div class="card-body p-0">
+                            <button class="btn btn-sm btn-outline-secondary misc-content-btn" type="button" data-bs-toggle="collapse" data-bs-target="#miscCollapse1" aria-expanded="false" aria-controls="miscCollapse1">
+                                大阪車站  
+                            </button>
+                            <div class="collapse" id="miscCollapse1">
+                                <div class="p-4 text-start bg-light">
+                                    <p class="small mb-0">他其實是一個金屬的裝置藝術。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card misc-entry">
+                        <img src=".\OsakaData\04.JPG" class="card-img-top misc-img" alt="大阪車站">
+                        <div class="card-body p-0">
+                            <button class="btn btn-sm btn-outline-secondary misc-content-btn" type="button" data-bs-toggle="collapse" data-bs-target="#miscCollapse1" aria-expanded="false" aria-controls="miscCollapse1">
+                                大阪車站
+                            </button>
+                            <div class="collapse" id="miscCollapse1">
+                                <div class="p-4 text-start bg-light">
+                                    <p class="small mb-0">有人口渴了…… </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card misc-entry">
+                        <img src=".\OsakaData\05.JPG" class="card-img-top misc-img" alt="大阪城">
+                        <div class="card-body p-0">
+                            <button class="btn btn-sm btn-outline-secondary misc-content-btn" type="button" data-bs-toggle="collapse" data-bs-target="#miscCollapse1" aria-expanded="false" aria-controls="miscCollapse1">
+                                大阪城
+                            </button>
+                            <div class="collapse" id="miscCollapse1">
+                                <div class="p-4 text-start bg-light">
+                                    <p class="small mb-0">還沒到大阪城，就先被城牆吸引了。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card misc-entry">
+                        <img src=".\OsakaData\06.JPG" class="card-img-top misc-img" alt="大阪城">
+                        <div class="card-body p-0">
+                            <button class="btn btn-sm btn-outline-secondary misc-content-btn" type="button" data-bs-toggle="collapse" data-bs-target="#miscCollapse1" aria-expanded="false" aria-controls="miscCollapse1">
+                                大阪城
+                            </button>
+                            <div class="collapse" id="miscCollapse1">
+                                <div class="p-4 text-start bg-light">
+                                    <p class="small mb-0">大阪城本身並沒有很大，但票價不貴，我還是很推薦前去逛逛! </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card misc-entry">
+                        <img src=".\OsakaData\07.JPG" class="card-img-top misc-img" alt="萬博吉祥物">
+                        <div class="card-body p-0">
+                            <button class="btn btn-sm btn-outline-secondary misc-content-btn" type="button" data-bs-toggle="collapse" data-bs-target="#miscCollapse1" aria-expanded="false" aria-controls="miscCollapse1">
+                                萬博吉祥物
+                            </button>
+                            <div class="collapse" id="miscCollapse1">
+                                <div class="p-4 text-start bg-light">
+                                    <p class="small mb-0">今年有萬博，但人實在是太多了，所以我們沒有去，不過還是要跟吉祥物拍張照。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card misc-entry">
+                        <img src=".\OsakaData\08.JPG" class="card-img-top misc-img" alt="萬博紀念公園">
+                        <div class="card-body p-0">
+                            <button class="btn btn-sm btn-outline-secondary misc-content-btn" type="button" data-bs-toggle="collapse" data-bs-target="#miscCollapse1" aria-expanded="false" aria-controls="miscCollapse1">
+                                萬博紀念公園
+                            </button>
+                            <div class="collapse" id="miscCollapse1">
+                                <div class="p-4 text-start bg-light">
+                                    <p class="small mb-0">今年的萬博沒有參觀到沒關係，我們逛70’的萬博。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card misc-entry">
+                        <img src=".\OsakaData\09.JPG" class="card-img-top misc-img" alt="萬博紀念公園">
+                        <div class="card-body p-0">
+                            <button class="btn btn-sm btn-outline-secondary misc-content-btn" type="button" data-bs-toggle="collapse" data-bs-target="#miscCollapse1" aria-expanded="false" aria-controls="miscCollapse1">
+                                萬博紀念公園
+                            </button>
+                            <div class="collapse" id="miscCollapse1">
+                                <div class="p-4 text-start bg-light">
+                                    <p class="small mb-0">萬博紀念公園非常大，我們還沒逛完，下次繼續來。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card misc-entry">
+                        <img src=".\OsakaData\10.JPG" class="card-img-top misc-img" alt="卡普空咖啡店 梅田店">
+                        <div class="card-body p-0">
+                            <button class="btn btn-sm btn-outline-secondary misc-content-btn" type="button" data-bs-toggle="collapse" data-bs-target="#miscCollapse1" aria-expanded="false" aria-controls="miscCollapse1">
+                                卡普空咖啡店 梅田店
+                            </button>
+                            <div class="collapse" id="miscCollapse1">
+                                <div class="p-4 text-start bg-light">
+                                    <p class="small mb-0">幫男人預約好他最愛的銀魂，工作結束後，來好好休息一下。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+
+            </div>
+         </div>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="text-center p-3">
+            © 2025 日本旅遊記 | 學號: S1411222005 張宇彤
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    
+</body>
+</html>

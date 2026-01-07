@@ -1,0 +1,231 @@
+/* ------------------------------------------------ */
+/* 核心配色與基礎設定 (符合暖色調、圓角風格) */
+/* ------------------------------------------------ */
+
+/* 宣告全域統一管理(超強優先級) */
+:root {
+    --primary-color: #ffffff; /* 主暖色調：白 (可根據案主需求調整) */
+    --secondary-color: #ffe8e8; /* 次暖色調：淺粉色，用於背景或區塊 */
+    --text-color: #333333; /* 核心文字顏色 */
+    --bg-color: #ff5328; /* 主要背景色 */
+    --border-radius-lg: 15px; /* 大圓角 */
+    --border-radius-sm: 8px; /* 小圓角，用於按鈕/導航項 */
+}
+
+body {
+    font-family: '標楷體', 'Arial', sans-serif;
+    color: var(--text-color);
+    background-color: #ffe4d7; /* 輕微的灰白色背景 */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 確保整體 */
+    margin: 0;
+}
+
+/* 導航欄樣式 */
+.navbar {
+    background-color: var(--bg-color) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 1rem 0;
+    
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 2rem;
+    color: var(--primary-color) !important;
+    
+}
+
+.nav-item {
+    margin-left: 0.5rem; /* 導航項目之間間距 */
+    
+    
+}
+
+.nav-link {
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-sm); /* 導航連結使用小圓角 */
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color:#fff2ec;
+    transition: background-color 0.3s;
+    
+}
+
+.nav-link.active, .nav-link:hover {
+    background-color: #4b4b4b6e; /* 懸停或選中時有透明灰色背景 */
+    color: var(--primary-color) !important;
+    
+}
+
+/* 響應式：手機板導航菜單 */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        background-color: var(--bg-color);
+        border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+}
+
+
+.content {
+    flex-grow: 1; /*填滿剩餘空間 */
+  }
+  
+/* 頁面標題區 */
+.content-header {
+    background-color: #ffffff;
+    padding: 4rem 0; /* 增加上下間距，符合大版面設計 */
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius-lg); 
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    
+}
+
+/* 旅遊紀錄卡片樣式  */
+.travel-entry {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    border-radius: var(--border-radius-lg); /* 應用大圓角 */
+    overflow: hidden;
+    border: none; /* 移除預設邊框 */
+}
+
+.travel-header {
+    background-color: #ffffff;
+    padding: 4rem 0; /* 增加上下間距，符合大版面設計 */
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius-lg); 
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.travel-entry:hover {
+    transform: translateY(-5px);
+}
+
+/* 按鈕樣式 (應用主題色) */
+.btn-primary {
+    background-color:  #ff5328;
+    border-color: var(--primary-color);
+    border-radius: 8px;
+}
+.btn-primary:hover {
+    background-color: #e60073; 
+    border-color: #e60073;
+}
+.display-4{
+    font-family: '標楷體', 'Arial', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+.display-2{
+    font-family: '標楷體', 'Arial', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* 確保跑馬燈的圓角應用 */
+.carousel-inner {
+    border-radius: var(--border-radius-lg);
+}
+.carousel-caption {
+    padding: 0.5rem 1rem;
+    bottom: 1rem;
+    left: 10%;
+    right: 10%;
+}
+.carousel-caption h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* 跑馬燈圖片樣式 */
+.carousel-item img {
+    /* 確保圖片填滿並保持高度 */
+    height: 500px; 
+    object-fit: cover;
+}
+
+/* 手風琴樣式優化 */
+.accordion-item {
+    border-radius: var(--border-radius-lg) !important;
+    margin-bottom: 15px; /* 增加手風琴項目間距 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid var(--secondary-color); /* 讓邊框更柔和 */
+}
+
+.accordion-button {
+    background-color: #ff9479 !important; /* 淺粉色背景 */
+    color: var(--text-color);
+    font-weight: bold;
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0 !important;
+    padding: 1rem 1.25rem;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #ff5328 !important; /* 展開時的強調色 */
+    color: white !important;
+    box-shadow: none;
+}
+
+.accordion-body {
+    background-color: white;
+    padding: 1.5rem;
+}
+
+/* 側欄 (Sidebar) 樣式 */
+.sidebar {
+    background-color: var(--secondary-color); 
+    padding: 1.5rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* 確保側欄在手機上佔滿，在桌面版則固定寬度 */
+    margin-bottom: 1.5rem; 
+}
+
+@media (min-width: 992px) {
+    .sidebar {
+        /* 在大螢幕上，固定在左側 */
+        position: sticky; 
+        top: 80px; /* 避開導航欄 */
+        height: calc(100vh - 100px); /* 保持一定高度 */
+    }
+}
+
+/* 雜記卡片樣式 */
+.misc-entry {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border: none;
+    font-size: 1.25rem;
+    width: 100%;
+}
+.misc-img {
+    height: 600px;
+    object-fit: cover;
+    width: 100%;
+}
+.misc-content-btn {
+    width: 100%;
+    border-radius: 0;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+/* 雜記卡片摺疊樣式 */
+.p-4 {
+    background-color: #050505;
+}
+
+/* footer樣式 */
+.p-3 {
+    padding: 1rem ;
+    background-color: #ff5328;
+    font-size: 1.25rem;
+    color: rgb(255, 255, 255) ;
+}
