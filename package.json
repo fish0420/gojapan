@@ -2,7 +2,7 @@
   "name": "love-travel-log",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "serves.js",
   "dependencies": {
     "bson": "^7.0.0",
     "express": "^5.2.1",
