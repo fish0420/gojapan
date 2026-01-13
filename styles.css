@@ -3,7 +3,7 @@
 /* ------------------------------------------------ */
 
 /* 宣告全域統一管理(超強優先級) */
-:root {
+:root {   /*這份文件的「最高層級（根部）」。在這裡定義的東西，全網頁都能用*/
     --primary-color: #ffffff; /* 主暖色調：白 (可根據案主需求調整) */
     --secondary-color: #ffe8e8; /* 次暖色調：淺粉色，用於背景或區塊 */
     --text-color: #333333; /* 核心文字顏色 */
@@ -12,28 +12,28 @@
     --border-radius-sm: 8px; /* 小圓角，用於按鈕/導航項 */
 }
 
-body {
-    font-family: '標楷體', 'Arial', sans-serif;
-    color: var(--text-color);
+body {   /*網頁的「基本體質」*/
+    font-family: '標楷體', 'Arial', sans-serif;    /* 主要字體設定，sans-serif 無襯線字體，自動找黑體（Arial）來代替 */
+    color: var(--text-color);    /* 文字顏色 */
     background-color: #ffe4d7; /* 輕微的灰白色背景 */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* 確保整體 */
-    margin: 0;
+    display: flex;    /*開啟彈性盒子模式*/
+    flex-direction: column;    /*direction (方向) / column (直欄) 讓網頁內容 由上而下 */
+    min-height: 100vh; /* min-height (最小高度)，100vh (View Height)：代表「整個螢幕的高度」，撐滿整個螢幕，頁尾（Footer）乖乖待在最底下 */
+    margin: 0;   /*外邊距為 0	拿掉網頁最邊邊惱人的白邊。*/
 }
 
 /* 導航欄樣式 */
 .navbar {
-    background-color: var(--bg-color) !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    padding: 1rem 0;
+    background-color: var(--bg-color) !important;   /*!important 因為Bootstrap 本身就有內建顏色，因此強制瀏覽器改成我的顏色*/
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);   /*陰影*/
+    padding: 1rem 0;  /*padding (內邊距) 1rem (第一個數值)上下 ，rem:Root em，一個「相對單位」，通常是 <html> 的字體大小*/
     
 }
 
 .navbar-brand {
-    font-weight: bold;
-    font-size: 2rem;
-    color: var(--primary-color) !important;
+    font-weight: bold; /* 粗體 */
+    font-size: 2rem;  /*。預設字體的 2 倍大*/
+    color: var(--primary-color) !important;   /*在root 區塊定義的名字，這代表 #ffffff (白色)*/
     
 }
 
@@ -44,149 +44,151 @@ body {
 }
 
 .nav-link {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1rem;  /*0.5rem (上下)、1rem (左右)*/
     border-radius: var(--border-radius-sm); /* 導航連結使用小圓角 */
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
+    font-size: 1.5rem;   /*比一般網頁文字大*/
+    font-weight: bold;   /*加粗*/
+    text-align: center;   /*文字置中*/
     color:#fff2ec;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s;   /*過渡/轉場、0.3秒。當滑鼠移上去時，背景色的出現會帶有淡入淡出的效果*/
     
 }
 
-.nav-link.active, .nav-link:hover {
+.nav-link.active, .nav-link:hover {    /*同時 正在看的那一頁 or 滑鼠游標停在連結上方*/
     background-color: #4b4b4b6e; /* 懸停或選中時有透明灰色背景 */
-    color: var(--primary-color) !important;
+    color: var(--primary-color) !important;  /*白*/
     
 }
 
 /* 響應式：手機板導航菜單 */
-@media (max-width: 992px) {
+@media (max-width: 992px) {   /*@media 告訴瀏覽器我們要根據「設備條件」來切換樣式，max-width： 最大寬度，992px 當螢幕寬度小於或等於 992 像素時（也就是在平板或手機上），才執行大括號裡面的 CSS。*/
     .navbar-collapse {
-        background-color: var(--bg-color);
-        border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+        background-color: var(--bg-color);  /*確保選單拉下來時是有顏色的暖橘色*/
+        border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);   /*左上、右上、右下、左下，0 0 代表上方維持直角，var(--border-radius-lg 大圓角 */
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 }
 
 
 .content {
-    flex-grow: 1; /*填滿剩餘空間 */
+    flex-grow: 1; /*彈性的，擴展，一個比例數值，填滿剩餘空間 */
   }
   
 /* 頁面標題區 */
-.content-header {
+.content-header {   /*寫著「我的日本旅遊日記」那塊白色大框框*/
     background-color: #ffffff;
-    padding: 4rem 0; /* 增加上下間距，符合大版面設計 */
-    margin-bottom: 2rem;
-    border-radius: var(--border-radius-lg); 
-    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-    
+    padding: 4rem 0; /* 上方和下方留出了巨大的空白，符合大版面設計 */
+    margin-bottom: 2rem;   /*Margin (外邊距) / Bottom (底部)，標題框框「外面」下方的距離*/
+    border-radius: var(--border-radius-lg);   /*呼應最開始設 15px 大圓角*/
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);  /**/
+     
 }
 
 /* 旅遊紀錄卡片樣式  */
 .travel-entry {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);   /**/
+    transition: transform 0.3s ease;   /*0.3s：動畫時間，ease 平滑 緩入緩出*/
+    cursor: pointer;   /*cursor (游標) / pointer (指針)，箭頭會變成「小手」 */
     border-radius: var(--border-radius-lg); /* 應用大圓角 */
-    overflow: hidden;
+    overflow: hidden;   /*overflow (溢出) / hidden (隱藏)，超出圓角範圍的內容都會被自動裁切掉*/
     border: none; /* 移除預設邊框 */
 }
 
-.travel-header {
+.travel-header {   /**/
     background-color: #ffffff;
     padding: 4rem 0; /* 增加上下間距，符合大版面設計 */
-    margin-bottom: 2rem;
-    border-radius: var(--border-radius-lg); 
-    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    margin-bottom: 2rem;   /*margin-bottom (外邊距)*/
+    border-radius: var(--border-radius-lg);    /*呼應大圓角*/
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);   /**/
 }
 
-.travel-entry:hover {
-    transform: translateY(-5px);
+.travel-entry:hover {   /*滑鼠游標停留在卡片上方 時，才執行裡面的指令*/
+    transform: translateY(-5px);   /*Y 方向垂直位移 負數代表向上 5 像素*/
 }
 
-/* 按鈕樣式 (應用主題色) */
-.btn-primary {
+/* 按鈕樣式 (應用主題色)，改按鳥顏色 */
+.btn-primary {   /*Bootstrap 的標準類別，專門用於「最重要的操作按鈕」*/
     background-color:  #ff5328;
-    border-color: var(--primary-color);
-    border-radius: 8px;
+    border-color: var(--primary-color);   /*呼應前面root的顏色*/
+    border-radius: 8px;   /*圓角*/
 }
-.btn-primary:hover {
-    background-color: #e60073; 
-    border-color: #e60073;
+.btn-primary:hover {   /*只有當滑鼠指標懸停在元素上方時，才套用這組樣式，下面兩個同時改*/
+    background-color: #e60073;    /*背景*/
+    border-color: #e60073;   /*邊框*/
 }
-.display-4{
+
+/* 專門用來處理 需要極大視覺張力 的標題，數字越小，字體越大 */
+.display-4{   /**/
     font-family: '標楷體', 'Arial', sans-serif;
     font-weight: bold;
     text-align: center;
 }
-.display-2{
+.display-2{   /**/
     font-family: '標楷體', 'Arial', sans-serif;
     font-weight: bold;
     text-align: center;
 }
 
 /* 確保跑馬燈的圓角應用 */
-.carousel-inner {
-    border-radius: var(--border-radius-lg);
+.carousel-inner {   /*Bootstrap 輪播圖組件中，實際包裹所有圖片的「容器」*/
+    border-radius: var(--border-radius-lg);   /*如果只是對單張圖片設定圓角，當圖片切換時，邊角可能會出現閃爍或露出的情況*/
 }
-.carousel-caption {
-    padding: 0.5rem 1rem;
+.carousel-caption {   /*專門控制圖片上方疊加文字的區塊*/
+    padding: 0.5rem 1rem;   /*上下 0.5rem，左右 1rem*/
     bottom: 1rem;
-    left: 10%;
+    left: 10%;   /*設定文字區的「左右邊界」，文字區會縮窄到中間的 80% 寬度*/
     right: 10%;
 }
-.carousel-caption h3 {
-    margin: 0;
+.carousel-caption h3 {   /*輪播圖內部的小標題*/
+    margin: 0;   /*外邊距*/
     font-size: 1.5rem;
 }
 
 /* 跑馬燈圖片樣式 */
-.carousel-item img {
+.carousel-item img {   /*圖片比例被拉伸變形*/
     /* 確保圖片填滿並保持高度 */
-    height: 500px; 
-    object-fit: cover;
+    height: 500px;   /**/
+    object-fit: cover;   /*把這張圖片鋪滿 500px 的高度和整個寬度，自動修剪邊緣，絕對不准拉伸圖片*/
 }
 
 /* 手風琴樣式優化 */
-.accordion-item {
-    border-radius: var(--border-radius-lg) !important;
+.accordion-item {   /**/
+    border-radius: var(--border-radius-lg) !important;   /*強迫每一層「手風琴」都要有大圓角*/
     margin-bottom: 15px; /* 增加手風琴項目間距 */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    border: 1px solid var(--secondary-color); /* 讓邊框更柔和 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);   /**/
+    border: 1px solid var(--secondary-color); /* 讓邊框更柔和 ，secondary-color 呼應 root*/
 }
 
-.accordion-button {
-    background-color: #ff9479 !important; /* 淺粉色背景 */
-    color: var(--text-color);
-    font-weight: bold;
+.accordion-button {   /*手風琴的「開關按鈕」*/
+    background-color: #ff9479 !important; /* 強制 淺粉色背景 */
+    color: var(--text-color);   /*root*/
+    font-weight: bold;  
     border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0 !important;
-    padding: 1rem 1.25rem;
+    padding: 1rem 1.25rem;   /*文字與邊框之間*/
 }
 
-.accordion-button:not(.collapsed) {
+.accordion-button:not(.collapsed) {   /**/
     background-color: #ff5328 !important; /* 展開時的強調色 */
-    color: white !important;
-    box-shadow: none;
+    color: white !important;   /**/
+    box-shadow: none;   /*1rem (上下)、1.25rem (左右)*/
 }
 
-.accordion-body {
+.accordion-body {   /*內容展示區*/
     background-color: white;
     padding: 1.5rem;
 }
 
 /* 側欄 (Sidebar) 樣式 */
-.sidebar {
-    background-color: var(--secondary-color); 
-    padding: 1.5rem;
-    border-radius: var(--border-radius-lg);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+.sidebar {   /**/
+    background-color: var(--secondary-color);    /*root*/
+    padding: 1.5rem;   /*空間*/
+    border-radius: var(--border-radius-lg);   /*圓角*/
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);   /**/
     /* 確保側欄在手機上佔滿，在桌面版則固定寬度 */
-    margin-bottom: 1.5rem; 
+    margin-bottom: 1.5rem;    /**/
 }
 
-@media (min-width: 992px) {
+@media (min-width: 992px) {   /*只在電腦版（大螢幕）生效*/
     .sidebar {
         /* 在大螢幕上，固定在左側 */
         position: sticky; 
@@ -196,36 +198,37 @@ body {
 }
 
 /* 雜記卡片樣式 */
-.misc-entry {
+.misc-entry {    /**/
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: var(--border-radius-sm);
-    overflow: hidden;
-    margin-bottom: 1rem;
-    border: none;
-    font-size: 1.25rem;
-    width: 100%;
+    border-radius: var(--border-radius-sm);/*圓角*/
+    overflow: hidden;   /*裁切*/
+    margin-bottom: 1rem;/*間距*/
+    border: none;/*無邊框*/
+    font-size: 1.25rem;/*字體大小*/
+    width: 100%;/*寬度*/
 }
-.misc-img {
-    height: 600px;
-    object-fit: cover;
-    width: 100%;
+.misc-img {   /**/
+    height: 600px;/*高*/
+    object-fit: cover;/*確保圖片填滿 600px 的空間且不變形*/
+    width: 100%;/*確保圖片橫向撐滿它的容器*/
 }
-.misc-content-btn {
-    width: 100%;
-    border-radius: 0;
-    font-weight: bold;
-    font-size: 1.25rem;
+.misc-content-btn {   /*按鈕*/
+    width: 100%; /*寬度*/
+    border-radius: 0; /*無圓角*/
+    font-weight: bold; /*粗體*/
+    font-size: 1.25rem; /*字體大小*/
 }
 
 /* 雜記卡片摺疊樣式 */
-.p-4 {
+.p-4 {   /*背景顏色*/
     background-color: #050505;
 }
 
 /* footer樣式 */
-.p-3 {
-    padding: 1rem ;
-    background-color: #ff5328;
-    font-size: 1.25rem;
-    color: rgb(255, 255, 255) ;
+.p-3 {   
+    padding: 1rem ; /*內距*/
+    background-color: #ff5328; /*背景顏色*/
+    text-align: center; /*文字置中*/
+    font-size: 1.25rem; /*字體大小*/
+    color: rgb(255, 255, 255) ; /*文字顏色*/
 }
