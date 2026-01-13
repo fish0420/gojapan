@@ -1,64 +1,74 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
+<!DOCTYPE html>  <!--這是一份標準的 HTML5 文件-->
+<html lang="zh-Hant">  <!--網頁的主語言為「繁體中文」-->
     
 <!-- 引用、設定與樣式擺放區 -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">  <!--網頁的字元編碼為 UTF-8-->
+    <meta name="viewport" content="width=device-width , initial-scale=1.0"> <!--設定「視窗（Viewport）」的大小要跟隨「裝置寬度」，且初始縮放比例為 1，這是做 「響應式網頁 (RWD)」 最核心的一行-->
+    <!--name="viewport" (視窗)，網頁寬度 (width) 等於 (=) 裝置寬度 (device-width)，initial-scale：初始縮放比例-->
     <title>首頁 | 日本旅遊記</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">  <!--Bootstrap樣式表-->
+    <link rel="stylesheet" href="styles.css">   <!--引用 styles.css-->
 </head>
 
 <!-- 網頁主體 -->
 <body>
 
     <!-- 導覽欄 -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">   <!--navbar-expand-lg：在電腦大螢幕上「展開」選單；在手機小螢幕上則「縮起來」變成三條線的按鈕。bg-light (Background Light)：淺色背景。sticky-top：讓導覽列「黏在頂部」。當你往下滑動網頁時，選單會一直停在最上面。-->
         <div class="container">
             <a class="navbar-brand" href="home.html">日本旅遊記</a>
-            
+
+            <!--手機版的「漢堡選單」，navbar-toggler ：切換器。這是在手機版時會出現的那個按鈕。-->
+            <!--data-bs-target="#navbarNav" (最重要：遙控目標)#navbarNav：這是對應到下方選單清單的 id。意思：這顆按鈕的「發射目標」是 id 叫做 navbarNav 的那個區塊。當你在手機上點擊按鈕，它就會去控制那個清單展開或收合。-->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="home.html">網站首頁 <br> <h6> Home </h6> </a></li>
+                <ul class="navbar-nav ms-auto">   <!--navbar-nav  Bootstrap自動，ms-auto  外邊距起始端-自動-->
+                    <li class="nav-item"><a class="nav-link" href="home.html">網站首頁 <br> <h6> Home </h6> </a></li>   <!--h6 標題層級，數字越大，字體就越小-->
                     <li class="nav-item"><a class="nav-link" href="summertokyo.html">夏日東京 <br> <h6> Tokyo </h6> </a></li> 
                     <li class="nav-item"><a class="nav-link" href="osaka.html"> 大阪旅遊 <br> <h6> Osaka </h6> </a></li>
                     <li class="nav-item"><a class="nav-link" href="yokohama.html">橫濱旅遊 <br> <h6> Yokohama </h6> </a></li>
                     <li class="nav-item"><a class="nav-link" href="autumntokyo.html">秋季東京 <br> <h6> Tokyo </h6> </a></li>
                 </ul>
+                <!--ul：無序清單（點點清單）。li ：清單中的每一個項目。<br> (Break)：換行。<h6>：第六級標題。你用它來放英文副標題（如 Home, Tokyo），讓字體變小變細。-->
             </div>
         </div>
     </nav>
 
     <!-- 主內容 -->
-    <main class="container my-5">
+    <main class="container my-5">   <!--main：這頁最核心的內容。container 把內容鎖在網頁的中間，my-5 外邊距、Y 軸  頂部和底部各留出一大塊空白，5：Bootstrap 中最大的間距等級-->
         
          <!-- 主標題 -->
-        <div class="p-5 text-center content-header">
-            <h1 class="display-2 mb-3">日本旅遊記</h1>
-            <p class="lead">
+        <div class="p-5 text-center content-header">   <!--p 內邊距，content-header 在 styles.css 裡 -->
+            <h1 class="display-2 mb-3">日本旅遊記</h1>   <!--display-2：顯示、展現 等級2（數字越小字越大）。意思：這比一般的 h1 還要巨大、醒目。這專門用於網頁最開頭的視覺大標題。mb-3 外邊距 底部:下方留一點空隙-->
+            <p class="lead">   <!--lead：引導段落，讓這段文字看起來比較突出-->
                 2025年，四趟旅行，一段段專屬我們的浪漫回憶。
             </p>
         </div>
 
         <!-- 旅遊跑馬燈 -->
-        <div id="travelCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+        <div id="travelCarousel" class="carousel slide mb-5" data-bs-ride="carousel">   <!--travelCarousel：一個id，讓後面的按鈕知道它們被控制。carousel 會自動切換的元件。slide 圖片切換時要有「滑過去」的動畫效果。data-bs-ride="carousel"：ride：當網頁一打開，這個輪播圖就要「自動開始播放」。-->
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <!--button 代表四張照片，data-bs-target="#travelCarousel"  這顆按鈕的 id 叫 travelCarousel，data-bs-slide-to="0、1、2、3 請滑動到「第 1、2、3、4 張」圖片，aria-current="true" 這顆按鈕對應的是現在正在看的這一張-->
             </div>
-            <div class="carousel-inner" style="border-radius: var(--border-radius-lg); overflow: hidden;">
-                <div class="carousel-item active">
-                    <img src="SummertokyoData/07.JPG" class="d-block w-100" alt="夏日東京照片" style="height: 500px; object-fit: cover;">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3 class="bg-dark bg-opacity-50 p-1 rounded">夏日東京：夢幻啟程</h3>
+<!--以上是在講述馬燈動態-->
+
+
+            <div class="carousel-inner" style="border-radius: var(--border-radius-lg); overflow: hidden;">   
+                <!--inner 一個「大抽屜」，var(--border (邊框)-radius (半徑)-lg (大))) 把這個角落塗成 『大號圓角標準』 的弧度，overflow: hidden 如果裡面的照片太大，超出圓角盒子的範圍，請把超出的部分剪掉-->
+                <div class="carousel-item active">   <!--item 項目每一張幻燈片的單位，active 啟用，輪流出現-->
+                    <img src=".\SummertokyoData\07.JPG" class="d-block w-100" alt="夏日東京照片" style="height: 500px; object-fit: cover;">   <!--d-block 讓圖片變成「塊狀」獨立的一行，w-100 寬度100%，height: 500px 高度 500 像素，object-fit: cover：自動裁剪圖片，讓圖片填滿容器，不變形-->
+                    <div class="carousel-caption d-none d-md-block">   <!--疊在圖片上面的文字區塊，d-none 預設隱藏，d-md-block 只有中型(電腦)螢幕才顯示-->
+                        <h3 class="bg-dark bg-opacity-50 p-1 rounded">夏日東京：夢幻啟程</h3>   <!--背景黑色、透明度50%、內邊距1、圓角-->
                     </div>
+                    
                 </div>
                 <div class="carousel-item">
                     <img src=".\TravelCarousel\大阪2.jpeg" class="d-block w-100" alt="大阪美食照片" style="height: 500px; object-fit: cover;">
@@ -79,6 +89,8 @@
                     </div>
                 </div>
             </div>
+            <!--以上再說圖片-->
+
             <button class="carousel-control-prev" type="button" data-bs-target="#travelCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
@@ -87,10 +99,12 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
+            <!--carousel-control 倫波控制器，prev 前一格，next 下一個，<span> 是一個「沒有任何預設外觀」的容器、標籤 產生白色小箭頭，aria-hidden="true" 請忽略這個圖示，visually-hidden 視覺上隱藏，但程式碼還在-->
         </div>
     
         <!-- 手風琴摺疊 -->
         <div class="accordion" id="staticContentAccordion">
+           <!--accordion：手風琴。accordion-item：「每一層」。accordion-header：「標頭」，也就是你還沒點開前看到的那個橫條。accordion-button：標頭上的「按鈕」，負責觸發開關。accordion-body：「身體」。點開後顯示的內容、文字、連結。-->
             
             <div class="accordion-item travel-entry">
                 <h2 class="accordion-header" id="headingSummerTokyo">
@@ -108,6 +122,8 @@
                     </div>
                 </div>
             </div>
+            <!--data-bs-toggle (切換開關)="collapse (摺疊) 切換摺疊狀態，data-bs-parent="#staticContentAccordion" 「互斥功能」設定了 Parent，點開「大阪」，原本開著的「東京」內容就會自動縮回去-->
+            <!--travel-entry CSS，btn-outline-secondary 「只有外框線、沒有填充顏色」的灰色按鈕，aria-labelledby 專門給螢幕閱讀器看的 -->
 
             <div class="accordion-item travel-entry">
                 <h2 class="accordion-header" id="headingOsaka">
@@ -163,13 +179,20 @@
     </main>
 
     <!-- 頁尾 -->
-    <footer class="bg-light text-center text-lg-start mt-5">
-        <div class="text-center p-3">
-            © 2025 日本旅遊記 | 學號: S1411222005 張宇彤
+    <footer class="bg-light text-center text-lg-start mt-5">   <!-- footer 網頁的版權宣告區，背景亮，字在中間(手機板)，text-lg (大螢幕)電腦版-start (起始端（左邊）)，mt-5 外邊距、頂部，留 5 空隙-->
+        <div class="text-center p-3">   <!--p-3 頁尾內部留 3 空間-->
+            © 2025 日本旅遊記 | 學號: S1411222005 張宇彤   <!--直接貼上©，Copyright（版權所有）的符號-->
         </div>
     </footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!--script (腳本)：通常指 JavaScript。HTML 結構，CSS 外觀，JavaScript 動作 -->
+    <!--bootstrap.bundle.min.js  bundle (捆綁包)：這個檔案不只包含 Bootstrap 功能，還「捆綁」了處理彈窗、下拉選單所需的定位引擎 (Popper.js)，如果沒有這行，輪播圖（Carousel）就不會自動切換，手風琴（Accordion）點了也不會彈開。這行指令加載了讓這些組件「動起來」的邏輯-->
 </body>
 </html>
+
+<!--
+1.css 結尾的網址：負責「外觀、排版、美化」（像是衣服），在網頁最上面的 <head> 放入 CSS（先美化）。
+2.js 結尾的網址：負責「動作、開關、反應」（像是肌肉或電池），在網頁最底部的 </body> 前放入 JS（再動起來）。
+-->
