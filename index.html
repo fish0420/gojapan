@@ -185,13 +185,15 @@
     
     
     <!--新增框-->
-    <div class="card shadow-sm border-0 mb-5">
-        <div class="card-header bg-primary text-white">
-            <h4 class="mb-0">✨ 新增旅遊景點</h4>
-        </div>
-         <div class="card-body">
-            <form id="add-travel-form">
-                <div class="row g-3">
+    <div class="card shadow-sm border-0 mb-5 travel-entry">
+    
+    <div class="card-header text-white" style="background-color: #ff5328; border-bottom: none;">
+        <h4 class="mb-0">✨ 新增旅遊景點</h4>
+    </div>
+    
+    <div class="card-body bg-white">
+        <form id="add-travel-form">
+            <div class="row g-3">
                     <div class="col-md-3">
                         <label class="form-label">景點 ID (請以地區開頭)</label>
                         <input type="text" id="travel-id" class="form-control" placeholder="例如: tokyo-05" required>
@@ -209,7 +211,7 @@
                        <textarea id="travel-desc" class="form-control" rows="2" placeholder="寫點關於這個景點的介紹吧..." required></textarea>
                    </div>
                    <div class="col-12 text-end">
-                       <button type="submit" class="btn btn-success">確認新增景點</button>
+                       <button type="submit" class="btn text-white" style="background-color: #ff5328; border-radius: var(--border-radius-sm);">確認新增景點</button>
                    </div>
                 </div>
             </form>
