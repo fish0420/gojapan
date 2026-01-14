@@ -51,7 +51,7 @@ importInitialData();
 // --- 接下來才是原本的 app.use(...) 等其他代碼 ---
 //這兩行代碼為 「中間件 (Middleware)」，負責處理進來的請求和靜態檔案服務
 app.use(express.json());//資料解碼員，負責把進來的 JSON 格式資料轉換成 JavaScript 物件，讓你可以在程式碼中輕鬆操作這些資料
-app.use(express.static(path.join(__dirname, 'client')));//檔案管理員，負責把專案資料夾裡的靜態檔案（HTML、CSS、JavaScript、圖片等）提供給瀏覽器存取
+app.use(express.static(path.join(__dirname, '.')));//檔案管理員，負責把專案資料夾裡的靜態檔案（HTML、CSS、JavaScript、圖片等）提供給瀏覽器存取
 //「express.static」 幫忙把 osaka.html 和 01.jpg 傳給瀏覽器。「express.json」 幫忙把心得轉成物件，讓隨後能用 db.insert 存進 travel.db。
 
 //設定首頁路由，當使用者訪問根目錄時，伺服器會回應 home.html 檔案
