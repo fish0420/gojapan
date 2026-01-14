@@ -55,9 +55,8 @@ app.use(express.static(path.join(__dirname, 'client')));//檔案管理員，負�
 //「express.static」 幫忙把 osaka.html 和 01.jpg 傳給瀏覽器。「express.json」 幫忙把心得轉成物件，讓隨後能用 db.insert 存進 travel.db。
 
 //設定首頁路由，當使用者訪問根目錄時，伺服器會回應 home.html 檔案
-app.get('/', (req, res) => {
-    // 加上 'client'，因為檔案在 client 資料夾裡面
-    res.sendFile(path.join(__dirname, 'client', 'home.html')); 
+app.get('/', (req, res) => {//監聽一個 HTTP GET 請求，(req 瀏覽器傳來的資訊（例如是誰訪問的） , res 「傳送檔案」的指令。它會告訴瀏覽器：「別只看文字，直接把這整個 HTML 檔案下載並顯示出來」) => { ... }  是這個請求的處理函式
+    res.sendFile(path.join(__dirname, 'home.html')); //確保伺服器能在資料夾中精準找到 home.html
 });
 //使用者輸入網址後，伺服器才會知道：「喔！有人來了，快把 home.html 拿給他看！網址應該要對應到哪一個檔案，這段程式碼就像在寫地址。
 
