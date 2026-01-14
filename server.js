@@ -61,7 +61,7 @@ app.get('/', (req, res) => {//監聽一個 HTTP GET 請求，(req 瀏覽器傳�
 //使用者輸入網址後，伺服器才會知道：「喔！有人來了，快把 home.html 拿給他看！網址應該要對應到哪一個檔案，這段程式碼就像在寫地址。
 
 // 取得所有旅遊資料的 API
-app.get('http://localhost:3000/travel', (req, res) => {
+app.get('/api/travel', (req, res) => {
     // NeDB 使用 .find({}) 來搜尋所有資料
     db.find({}, (err, docs) => {
         if (err) {
