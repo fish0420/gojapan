@@ -12,40 +12,7 @@
     <link rel="stylesheet" href="styles.css">   <!--引用 styles.css-->
 </head>
 
-<script>
-    document.getElementById('add-travel-form').addEventListener('submit', function(e) {
-        e.preventDefault(); // 防止網頁跳轉
 
-        // 1. 抓取欄位裡的值
-        const travelData = {
-            id: document.getElementById('travel-id').value,
-            title: document.getElementById('travel-title').value,
-            img: document.getElementById('travel-img').value,
-            description: document.getElementById('travel-desc').value
-        };
-
-        // 2. 使用 POST 方法將資料傳送到後端 API
-        fetch('/api/travel', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(travelData)
-        })
-        .then(res => {
-            if (res.ok) {
-                alert('🎉 景點新增成功！請去對應的頁面查看。');
-                document.getElementById('add-travel-form').reset(); // 清空輸入框
-            } else {
-                alert('❌ 新增失敗，請檢查 API 伺服器是否運行中。');
-            }
-        })
-        .catch(err => {
-            console.error('錯誤:', err);
-            alert('❌ 發生錯誤，請查看控制台。');
-        });
-    });
-</script>
 
 <!-- 網頁主體 -->
 <body>
@@ -265,52 +232,67 @@
     <!--script (腳本)：通常指 JavaScript。HTML 結構，CSS 外觀，JavaScript 動作 -->
     <!--bootstrap.bundle.min.js  bundle (捆綁包)：這個檔案不只包含 Bootstrap 功能，還「捆綁」了處理彈窗、下拉選單所需的定位引擎 (Popper.js)，如果沒有這行，輪播圖（Carousel）就不會自動切換，手風琴（Accordion）點了也不會彈開。這行指令加載了讓這些組件「動起來」的邏輯-->
     <script>
-    // 讓網頁載入完成後執行
+    // 所有的動作都包在這個「DOMContentLoaded」裡面，確保網頁框框都蓋好了才開始跑程式
     document.addEventListener('DOMContentLoaded', () => {
+        
+        // --- [動作 1]：從資料庫抓資料顯示出來 ---
         fetch('/api/travel')
             .then(res => res.json())
             .then(data => {
                 const container = document.getElementById('new-items-container');
-                
-                // 1. 過濾掉原本 data.json 裡面的 21 筆舊資料
-                // 你的舊 ID 包含 nav-, tokyo-, osaka-, yoko-
                 const oldPrefixes = ['nav-', 'tokyo-', 'osaka-', 'yoko-'];
                 const newItems = data.filter(item => 
                     !oldPrefixes.some(prefix => item.id.startsWith(prefix))
                 );
 
-                // 2. 如果沒有新資料，顯示一個溫馨提示
                 if (newItems.length === 0) {
-                    container.innerHTML = `
-                        <div class="col-12 text-center py-5">
-                            <p class="text-muted">✨ 目前還沒有新增景點，快去資料庫加一筆吧！</p>
-                        </div>`;
-                    return;
-                }
-
-                // 3. 有新資料的話，用迴圈把卡片「生」出來
-                newItems.forEach(item => {
-                    container.innerHTML += `
-                        <div class="col-md-6 col-lg-3 mb-4">
-                            <div class="card h-100 shadow-sm border-0 travel-entry">
-                                <img src="${item.img}" class="card-img-top" alt="${item.title}" 
-                                     style="height: 200px; object-fit: cover;" 
-                                     onerror="this.src='https://via.placeholder.com/300x200?text=圖片路徑錯誤'">
-                                <div class="card-body">
-                                    <h5 class="card-title">${item.title}</h5>
-                                    <p class="card-text small text-secondary">${item.description}</p>
+                    container.innerHTML = `<div class="col-12 text-center py-5"><p class="text-muted">✨ 目前還沒有新增景點，快去資料庫加一筆吧！</p></div>`;
+                } else {
+                    newItems.forEach(item => {
+                        container.innerHTML += `
+                            <div class="col-md-6 col-lg-3 mb-4">
+                                <div class="card h-100 shadow-sm border-0 travel-entry">
+                                    <img src="${item.img}" class="card-img-top" alt="${item.title}" style="height: 200px; object-fit: cover;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${item.title}</h5>
+                                        <p class="card-text small text-secondary">${item.description}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    `;
-                });
-            })
-            .catch(err => {
-                console.error("抓取失敗:", err);
-                document.getElementById('new-items-container').innerHTML = "資料載入失敗...";
+                            </div>`;
+                    });
+                }
             });
+
+        // --- [動作 2]：監聽按鈕，把妳填的東西送出去 ---
+        const addForm = document.getElementById('add-travel-form');
+        if (addForm) {
+            addForm.addEventListener('submit', function(e) {
+                e.preventDefault(); 
+                const travelData = {
+                    id: document.getElementById('travel-id').value,
+                    title: document.getElementById('travel-title').value,
+                    img: document.getElementById('travel-img').value,
+                    description: document.getElementById('travel-desc').value
+                };
+
+                fetch('/api/travel', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(travelData)
+                })
+                .then(res => {
+                    if (res.ok) {
+                        alert('🎉 景點新增成功！');
+                        addForm.reset();
+                        window.location.reload(); // 讓網頁自動刷新，新景點才會立刻跑出來
+                    } else {
+                        alert('❌ 新增失敗，請檢查 API 伺服器是否運行中。');
+                    }
+                });
+            });
+        }
     });
-</script>
+    </script>
 
 </body>
 </html>
