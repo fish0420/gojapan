@@ -1,0 +1,23 @@
+[
+  { "id": "nav-summer-tokyo", "title": "夏日東京", "img": "./SummertokyoData/07.JPG", "description": "感受東京夏日的祭典與熱情。" },
+  { "id": "nav-osaka", "title": "大阪旅遊", "img": "./TravelCarousel/大阪2.jpeg", "description": "美食與笑聲不斷的繁華之都。" },
+  { "id": "nav-yokohama", "title": "橫濱旅遊", "img": "./TravelCarousel/橫濱4.jpeg", "description": "海風與港灣的美麗夜景。" },
+  { "id": "nav-autumn-tokyo", "title": "秋季東京", "img": "./AutumntokyoData/3.jpg", "description": "漫步在楓紅與金黃銀杏的大道。" },
+  { "id": "osaka-1", "title": "大阪車站", "img": "./OsakaData/01.jpg", "description": "大阪車站好大! 根本逛不完!" },
+  { "id": "osaka-2", "title": "LNCUA1100 爆米花", "img": "./OsakaData/02.jpg", "description": "這間爆米花店跟男人同名，爆米花也很好吃。" },
+  { "id": "osaka-3", "title": "大阪城天守閣", "img": "./OsakaData/06.jpg", "description": "大阪城票價不貴，推薦前去逛逛!" },
+  { "id": "tokyo-s-1", "title": "Nintendo TOKYO", "img": "./SummertokyoData/01.JPG", "description": "任天堂商品多到讓人失心瘋！" },
+  { "id": "tokyo-s-2", "title": "東京迪士尼", "img": "./SummertokyoData/02.JPG", "description": "今天我要成為公主!" },
+  { "id": "tokyo-s-3", "title": "吉卜力美術館", "img": "./SummertokyoData/06.JPG", "description": "煤炭精靈超可愛，票超難買！" },
+  { "id": "yoko-1", "title": "冰川丸", "img": "./YokohamaData/01.jpg", "description": "二戰醫療艦，現為博物館船。" },
+  { "id": "yoko-2", "title": "中華街拍貼機", "img": "./YokohamaData/08.jpg", "description": "日本的拍貼機大眼效果也太好笑wwww" },
+  { "id": "yoko-3", "title": "富士山遠眺", "img": "./YokohamaData/10.jpg", "description": "從飛機上看富士山非常壯觀。" },
+  { "id": "tokyo-a-1", "title": "重遊日本", "img": "./AutumntokyoData/1.jpg", "description": "再訪日本的飛機上，好期待秋季！" },
+  { "id": "tokyo-a-2", "title": "慵懶無尾熊", "img": "./AutumntokyoData/2.jpg", "description": "ララココ睡眼惺忪的樣子太可愛。" },
+  { "id": "tokyo-a-3", "title": "東京秋紅 (女生版)", "img": "./AutumntokyoData/3.jpg", "description": "來跟東京秋天特色（楓紅）合照一張！" },
+  { "id": "tokyo-a-4", "title": "東京秋紅 (男人版)", "img": "./AutumntokyoData/4.jpg", "description": "換個角度看楓葉，秋天的氣息真濃。" },
+  { "id": "tokyo-a-5", "title": "任天堂再訪", "img": "./AutumntokyoData/5.jpg", "description": "跟六樓的義大利水管工馬力歐合照！" },
+  { "id": "tokyo-a-6", "title": "中華西太后", "img": "./AutumntokyoData/6.jpg", "description": "美味的天津丼與日式中華料理。" },
+  { "id": "tokyo-a-7", "title": "動漫大豐收", "img": "./AutumntokyoData/7.jpg", "description": "在 animate 買到手軟！" },
+  { "id": "tokyo-a-8", "title": "銀八老師咖啡廳", "img": "./AutumntokyoData/8.jpg", "description": "不是假髮，是桂！(ヅラじゃない！桂だ！)" }
+]
