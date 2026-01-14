@@ -61,20 +61,20 @@ app.get('/', (req, res) => {//監聽一個 HTTP GET 請求，(req 瀏覽器傳�
 //使用者輸入網址後，伺服器才會知道：「喔！有人來了，快把 home.html 拿給他看！網址應該要對應到哪一個檔案，這段程式碼就像在寫地址。
 
 // 取得所有旅遊資料的 API
-app.get('/api/travel', (req, res) => {
+app.get('/api/travel', (req, res) => {  //定義一個「門牌號碼」，GET（拿資料的意思）
     // NeDB 使用 .find({}) 來搜尋所有資料
-    db.find({}, (err, docs) => {
+    db.find({}, (err, docs) => {  //去資料庫檔案（travel.db）裡面翻找
         if (err) {
-            res.status(500).json({ error: err.message });
+            res.status(500).json({ error: err.message });  //萬一資料庫出事了，回傳一個 500 錯誤碼（伺服器壞掉）告訴前端：「不好意思，我現在找不到資料
             return;
         }
-        res.json(docs); // 回傳資料庫裡的陣列
+        res.json(docs); // 回傳資料庫裡的陣列  如果一切順利，就把找出來的那一堆景點資料，打包成一個 JSON 格式（像是一個乾淨的清單）丟回給網頁。
     });
 });
 
-app.post('/api/travel/add', (req, res) => {
-    const newEntry = req.body; // 從網頁傳過來的資料
-    db.insert(newEntry, (err, doc) => {
+app.post('/api/travel/add', (req, res) => {  //專屬的投遞口，POST（傳送新東西的意思）
+    const newEntry = req.body; // req.body 在網頁表單填寫的那些內容（ID、標題、圖片網址、描述）。伺服器把這些資料拿出來，暫時存放在一個叫 newEntry 的變數裡
+    db.insert(newEntry, (err, doc) => {  //叫資料庫（NeDB）執行「插入（Insert）」動作。它會把 newEntry 這筆資料寫進 travel.db 檔案的最末端
         if (err) {
             res.status(500).json({ error: err.message });
             return;
@@ -89,3 +89,6 @@ const PORT = process.env.PORT || 3000;//選定頻道，伺服器要在哪個「�
 app.listen(PORT, () => {//坐在門口等客人，app.listen 撥出一個空間，隨時注意有沒有人從 PORT（3000 號門牌）傳訊息進來。() => { ... } 當伺服器順利啟動、沒被防火牆擋掉時，就會執行大括號裡的動作。
     console.log(`Server is running on port ${PORT}`);//純粹是寫給 開發者 看的。它會在黑視窗（終端機）顯示一行字：「Server is running on port！」
 });
+
+//data.json
+//"id": "nav-summer-tokyo" 身分證字號，title 景點的標題/名稱，img 景點照片的路徑，description 景點的描述
